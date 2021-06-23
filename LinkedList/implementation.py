@@ -52,7 +52,12 @@ class LinkedList:
         new_node = Node(value=value)
         new_node.next = previous_node.next
         previous_node.next = new_node
+        self.length += 1
         return
+
+    # def remove(self, index):
+    #     previsou_node = self.at(index-1)
+    #     previsou_node.next = previsou_node.next.next
 
 
 class Node:
