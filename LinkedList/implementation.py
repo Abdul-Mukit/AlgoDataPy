@@ -55,9 +55,25 @@ class LinkedList:
         self.length += 1
         return
 
-    # def remove(self, index):
-    #     previsou_node = self.at(index-1)
-    #     previsou_node.next = previsou_node.next.next
+    def remove(self, index):
+        if index >= self.length:
+            print("Warning: index out of bounds")
+            return
+        elif index == 0:
+            self.head = self.head.next
+        elif index == self.length-1:
+            previous_node = self.at(index-1)
+            previous_node.next = None
+            self.tail = previous_node
+        else:
+            previous_node = self.at(index-1)
+            previous_node.next = previous_node.next.next
+
+        self.length -= 1
+
+
+
+
 
 
 class Node:
