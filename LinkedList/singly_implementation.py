@@ -66,6 +66,20 @@ class SinglyLinkedList:
 
         self.length -= 1
 
+    def reverse(self):
+        cur_node = self.head
+        prev_node = None
+
+        while cur_node is not None:
+            next_node = cur_node.next # keep reference to not loose
+            cur_node.next = prev_node # main pointer reversing job
+            # now increment pointer
+            prev_node = cur_node
+            cur_node = next_node
+
+        self.tail = self.head
+        self.head = prev_node # last prev_Node would be the original tail node
+
 
 class Node:
     def __init__(self, value, next=None):
@@ -74,3 +88,18 @@ class Node:
 
     def __str__(self):
         return str(self.__dict__)
+
+
+# testing code
+my_list = SinglyLinkedList(0)
+my_list.append(1)
+my_list.append(2)
+my_list.append(3)
+my_list.print_list()
+print(my_list)
+
+
+my_list.reverse()
+my_list.print_list()
+print(my_list)
+
