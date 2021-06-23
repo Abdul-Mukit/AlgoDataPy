@@ -41,17 +41,14 @@ class SinglyLinkedList:
     def insert(self, index, value):
         if index == 0:
             self.prepend(value)
-            return
         elif index >= self.length:
             self.append(value)
-            return
-
-        previous_node = self.at(index-1)
-        new_node = Node(value=value)
-        new_node.next = previous_node.next
-        previous_node.next = new_node
-        self.length += 1
-        return
+        else:
+            previous_node = self.at(index-1)
+            new_node = Node(value=value)
+            new_node.next = previous_node.next
+            previous_node.next = new_node
+            self.length += 1
 
     def remove(self, index):
         if index >= self.length:
