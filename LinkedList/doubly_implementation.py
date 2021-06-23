@@ -20,14 +20,27 @@ class DoublyLinkedList:
         self.length += 1
 
     def at(self, index):
-        cur_node = self.head
-        i = 0
+        traverse = 0 if (index < int((self.length-1)/2)) else 1
+        print(traverse)
+        traverse_forward = 0
+        traverse_reverse = 1
+
+        if traverse == traverse_forward:
+            i = 0
+            cur_node = self.head
+        elif traverse == traverse_reverse:
+            i = self.length-1
+            cur_node = self.tail
+
         while cur_node is not None:
             if i == index:
                 break
-            else:
+            elif traverse == traverse_forward:
                 cur_node = cur_node.next
                 i += 1
+            elif traverse == traverse_reverse:
+                cur_node = cur_node.prev
+                i -= 1
 
         return cur_node
 
@@ -82,8 +95,14 @@ class Node:
         return str(self.__dict__)
 
 my_list = DoublyLinkedList(0)
-my_list.__str__()
-my_list.prepend(-1)
-my_list.prepend(-2)
-my_list.at(0)
-my_list.__str__()
+my_list.append(1)
+my_list.append(2)
+my_list.append(3)
+my_list.append(4)
+
+print(my_list)
+print(my_list.at(0))
+print(my_list.at(1))
+print(my_list.at(2))
+print(my_list.at(3))
+print(my_list.at(4))
