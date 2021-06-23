@@ -42,18 +42,16 @@ class DoublyLinkedList:
     def insert(self, index, value):
         if index == 0:
             self.prepend(value)
-            return
+
         elif index >= self.length:
             self.append(value)
-            return
-
-        previous_node = self.at(index-1)
-        next_node = previous_node.next
-        new_node = Node(value=value, next=next_node, prev=previous_node)
-        previous_node.next = new_node
-        next_node.prev = new_node
-        self.length += 1
-        return
+        else:
+            previous_node = self.at(index-1)
+            next_node = previous_node.next
+            new_node = Node(value=value, next=next_node, prev=previous_node)
+            previous_node.next = new_node
+            next_node.prev = new_node
+            self.length += 1
 
     def remove(self, index):
         if index >= self.length:
@@ -61,13 +59,15 @@ class DoublyLinkedList:
             return
         elif index == 0:
             self.head = self.head.next
+            self.head.prev = None
         elif index == self.length-1:
-            previous_node = self.at(index-1)
-            previous_node.next = None
-            self.tail = previous_node
+            self.tail = self.tail.prev # this was not possible in singly
+            self.tail.next = None
         else:
             previous_node = self.at(index-1)
-            previous_node.next = previous_node.next.next
+            next_node = previous_node.next.next
+            previous_node.next = next_node
+            next_node.prev = previous_node
 
         self.length -= 1
 
