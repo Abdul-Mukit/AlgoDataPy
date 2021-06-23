@@ -1,6 +1,4 @@
-# 10 > 5 > 16
-
-class LinkedList:
+class SinglyLinkedList:
     def __init__(self, value):
         self.head = Node(value)
         self.tail = self.head
@@ -72,10 +70,6 @@ class LinkedList:
         self.length -= 1
 
 
-
-
-
-
 class Node:
     def __init__(self, value, next=None):
         self.value = value
@@ -83,10 +77,3 @@ class Node:
 
     def __str__(self):
         return str(self.__dict__)
-
-
-my_linked_list = LinkedList(0)
-my_linked_list.append(1)
-print(my_linked_list)
-result = my_linked_list.at(1)
-print("hello")
