@@ -44,21 +44,14 @@ class LinkedList:
         if index == 0:
             self.prepend(value)
             return
+        elif index >= self.length:
+            self.append(value)
+            return
 
-        cur_node = self.head
+        previous_node = self.at(index-1)
         new_node = Node(value=value)
-        i = 0
-        while cur_node is not None:
-            if i+1 == index:
-                new_node.next = cur_node.next
-                cur_node.next = new_node
-                self.length += 1
-                return
-            else:
-                cur_node = cur_node.next
-                i += 1
-
-        print("Selected index not available for insert operation")
+        new_node.next = previous_node.next
+        previous_node.next = new_node
         return
 
 
