@@ -22,14 +22,14 @@ class LinkedList:
 
     def at(self, index):
         cur_node = self.head
-
-        for i in range(index):
-            if cur_node.next is not None:
-                cur_node = cur_node.next
-                print("Accessed {} th element".format(i+1))
+        i = 0
+        while cur_node is not None:
+            if i == index:
+                break
             else:
-                print("Error: the index {} element not found".format(index))
-                return None
+                cur_node = cur_node.next
+                i += 1
+
         return cur_node
 
     def print_list(self):
@@ -62,8 +62,6 @@ class LinkedList:
         return
 
 
-
-
 class Node:
     def __init__(self, value, next=None):
         self.value = value
@@ -74,5 +72,7 @@ class Node:
 
 
 my_linked_list = LinkedList(0)
-my_linked_list.append(2)
+my_linked_list.append(1)
 print(my_linked_list)
+result = my_linked_list.at(1)
+print("hello")
