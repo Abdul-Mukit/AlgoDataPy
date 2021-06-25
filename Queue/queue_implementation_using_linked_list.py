@@ -16,7 +16,7 @@ class Node:
         return str(self.__dict__)
 
 
-class Queues:
+class Queue:
     def __init__(self):
         self.last = None
         self.first = None
@@ -67,7 +67,7 @@ class Queues:
         print(stack_values)
 
 
-my_queue = Queues()
+my_queue = Queue()
 my_queue.enqueue(1)
 my_queue.enqueue(2)
 my_queue.enqueue(3)
