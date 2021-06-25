@@ -18,6 +18,9 @@ class Stack:
         self.top = None
         self.bottom = None
         self.length = 0
+    
+    def __str__(self):
+        return str(self.__dict__)
 
     def push(self, value): # or prepend of linked list.
         if self.length == 0:
@@ -50,6 +53,7 @@ class Stack:
         elif self.length > 1:
             temp = self.top
             self.top = self.top.next
+            self.length -= 1
             return temp
 
     def peek(self):
