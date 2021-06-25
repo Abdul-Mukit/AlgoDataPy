@@ -40,7 +40,9 @@ class Stack:
         return cur_node
 
     def pop(self):
-        if self.length == 1:
+        if self.length == 0:
+            return None
+        elif self.length == 1:
             temp = self.bottom
             self.top = self.bottom = None
             self.length -= 1
