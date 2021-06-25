@@ -67,23 +67,23 @@ class Queues:
         print(stack_values)
 
 
-my_stack = Queues()
-my_stack.enqueue(1)
-my_stack.enqueue(2)
-my_stack.enqueue(3)
+my_queue = Queues()
+my_queue.enqueue(1)
+my_queue.enqueue(2)
+my_queue.enqueue(3)
 
-my_stack.print_list()
+my_queue.print_list()
 
-popped = my_stack.dequeue()
+popped = my_queue.dequeue()
 print("Dequeued: {}".format(popped.value))
-print("New first: {}".format(my_stack.peek()))
+print("New first: {}".format(my_queue.peek()))
 
-popped = my_stack.dequeue()
+popped = my_queue.dequeue()
 print("Dequeued: {}".format(popped.value))
-print("New first: {}".format(my_stack.peek()))
+print("New first: {}".format(my_queue.peek()))
 
-popped = my_stack.dequeue()
+popped = my_queue.dequeue()
 print("Dequeued: {}".format(popped.value))
-print("New first: {}".format(my_stack.peek()))
+print("New first: {}".format(my_queue.peek()))
 
-my_stack.print_list()
+my_queue.print_list()
