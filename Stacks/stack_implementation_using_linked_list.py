@@ -52,7 +52,7 @@ class Stack:
             self.top = self.top.next
             return temp
 
-    def peak(self):
+    def peek(self):
         return self.top
 
     def print_list(self):
@@ -73,14 +73,14 @@ my_stack.print_list()
 
 popped = my_stack.pop()
 print("Popped: {}".format(popped.value))
-print("New top: {}".format(my_stack.peak()))
+print("New top: {}".format(my_stack.peek()))
 
 popped = my_stack.pop()
 print("Popped: {}".format(popped.value))
-print("New top: {}".format(my_stack.peak()))
+print("New top: {}".format(my_stack.peek()))
 
 popped = my_stack.pop()
 print("Popped: {}".format(popped.value))
-print("New top: {}".format(my_stack.peak()))
+print("New top: {}".format(my_stack.peek()))
 
 my_stack.print_list()
