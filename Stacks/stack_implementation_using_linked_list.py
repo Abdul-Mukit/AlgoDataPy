@@ -18,7 +18,7 @@ class Stack:
         self.top = None
         self.bottom = None
         self.length = 0
-    
+
     def __str__(self):
         return str(self.__dict__)
 
