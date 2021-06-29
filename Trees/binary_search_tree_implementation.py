@@ -38,7 +38,16 @@ class BinarySearchTree():
         return return_val
 
     def lookup(self, value):
-        print("Function not implemented")
+        cur_node = self.root
+        while cur_node is not None:
+            if cur_node.value == value:
+                return cur_node
+            elif value < cur_node.value:
+                cur_node = cur_node.left
+            elif value > cur_node.value:
+                cur_node = cur_node.right
+
+        return None # list traversing completed, entry not found
 
 
 myTree = BinarySearchTree()
@@ -49,5 +58,8 @@ myTree.insert(20)
 myTree.insert(170)
 myTree.insert(15)
 myTree.insert(1)
-print("Hello")
 
+print("Found: {}".format(myTree.lookup(9)))
+print("Found: {}".format(myTree.lookup(20)))
+print("Found: {}".format(myTree.lookup(15)))
+print("Found: {}".format(myTree.lookup(133)))
