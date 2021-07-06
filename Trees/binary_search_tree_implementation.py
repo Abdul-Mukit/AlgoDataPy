@@ -50,6 +50,16 @@ class BinarySearchTree():
         return None # list traversing completed, entry not found
 
 
+def traverse(cur_node: Node):
+    if cur_node is None:  # based condition
+        return str(None)
+    else:  # recursive condition
+        left_str = traverse(cur_node.left)
+        right_str = traverse(cur_node.right)
+        ret_str = "{}({},{})".format(cur_node.value, left_str, right_str)
+        return ret_str
+
+
 myTree = BinarySearchTree()
 myTree.insert(9)
 myTree.insert(4)
@@ -63,3 +73,6 @@ print("Found: {}".format(myTree.lookup(9)))
 print("Found: {}".format(myTree.lookup(20)))
 print("Found: {}".format(myTree.lookup(15)))
 print("Found: {}".format(myTree.lookup(133)))
+
+
+print(traverse(myTree.root))
