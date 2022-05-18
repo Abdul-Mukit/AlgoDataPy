@@ -8,7 +8,7 @@ class Node:
         return str(self.__dict__)
 
 
-class BinarySearchTree():
+class BinarySearchTree:
     def __init__(self):
         self.root = None
 
@@ -19,20 +19,20 @@ class BinarySearchTree():
             self.root = Node(value)
         else:
             cur_node = self.root
-            while cur_node is not None: # Traverse Tree
-                if value < cur_node.value: # go left?
+            while cur_node is not None:  # Traverse Tree
+                if value < cur_node.value:  # go left?
                     if cur_node.left is None:
                         cur_node.left = Node(value)
                         break
                     else:
                         cur_node = cur_node.left
-                elif value > cur_node.value: # go right?
+                elif value > cur_node.value:  # go right?
                     if cur_node.right is None:
                         cur_node.right = Node(value)
                         break
                     else:
                         cur_node = cur_node.right
-                else: # same value entered?`
+                else:  # same value entered?`
                     return_val = False
                     print("Can't input value that already exists")
         return return_val
@@ -47,7 +47,7 @@ class BinarySearchTree():
             elif value > cur_node.value:
                 cur_node = cur_node.right
 
-        return None # list traversing completed, entry not found
+        return None  # list traversing completed, entry not found
 
 
 def traverse(cur_node: Node):
@@ -73,6 +73,5 @@ print("Found: {}".format(myTree.lookup(9)))
 print("Found: {}".format(myTree.lookup(20)))
 print("Found: {}".format(myTree.lookup(15)))
 print("Found: {}".format(myTree.lookup(133)))
-
 
 print(traverse(myTree.root))
