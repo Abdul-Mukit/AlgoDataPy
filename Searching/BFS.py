@@ -49,26 +49,6 @@ class BinarySearchTree:
 
         return None  # list traversing completed, entry not found
 
-    def bfs(self) -> []:
-        current_node = self.root
-        output_list = []
-        level_queue = []
-
-        level_queue.append(current_node)
-
-        while len(level_queue) != 0:
-            current_node = level_queue.pop(0)
-            output_list.append(current_node.value)
-
-            if current_node.left is not None:
-                level_queue.append(current_node.left)
-
-            if current_node.right is not None:
-                level_queue.append(current_node.right)
-
-        return output_list
-
-
 def traverse(cur_node: Node):
     if cur_node is None:  # based condition
         return str(None)
@@ -78,6 +58,25 @@ def traverse(cur_node: Node):
         ret_str = "{}({},{})".format(cur_node.value, left_str, right_str)
         return ret_str
 
+
+def bfs(tree: BinarySearchTree) -> []:
+    current_node = tree.root
+    output_list = []
+    level_queue = []
+
+    level_queue.append(current_node)
+
+    while len(level_queue) != 0:
+        current_node = level_queue.pop(0)
+        output_list.append(current_node.value)
+
+        if current_node.left is not None:
+            level_queue.append(current_node.left)
+
+        if current_node.right is not None:
+            level_queue.append(current_node.right)
+
+    return output_list
 
 myTree = BinarySearchTree()
 myTree.insert(9)
@@ -89,7 +88,8 @@ myTree.insert(15)
 myTree.insert(1)
 
 print(traverse(myTree.root))
-print(myTree.bfs())
+print(bfs(myTree))
+
 
 
 
