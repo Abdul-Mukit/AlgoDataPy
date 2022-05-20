@@ -78,6 +78,59 @@ def bfs(tree: BinarySearchTree) -> []:
 
     return output_list
 
+
+def traverse_inorder(node: Node, output_list: list) -> []:
+    if node.left:
+        output_list = traverse_inorder(node.left, output_list)
+
+    output_list.append(node.value)
+
+    if node.right:
+        output_list = traverse_inorder(node.right, output_list)
+
+    return output_list
+
+
+def traverse_preorder(node: Node, output_list: list) -> []:
+    output_list.append(node.value)
+    if node.left:
+        output_list = traverse_preorder(node.left, output_list)
+
+    if node.right:
+        output_list = traverse_preorder(node.right, output_list)
+
+    return output_list
+
+
+def traverse_postorder(node: Node, output_list: list) -> []:
+    if node.left:
+        output_list = traverse_postorder(node.left, output_list)
+
+    if node.right:
+        output_list = traverse_postorder(node.right, output_list)
+
+    output_list.append(node.value)
+
+    return output_list
+
+
+def dfs_inroder(tree: BinarySearchTree):
+    output_list = []
+    output_list = traverse_inorder(tree.root, output_list)
+    print(output_list)
+
+
+def dfs_preorder(tree: BinarySearchTree):
+    output_list = []
+    output_list = traverse_preorder(tree.root, output_list)
+    print(output_list)
+
+def dfs_postorder(tree: BinarySearchTree):
+    output_list = []
+    output_list = traverse_postorder(tree.root, output_list)
+    print(output_list)
+
+
 myTree = BinarySearchTree()
 myTree.insert(9)
 myTree.insert(4)
@@ -88,7 +141,7 @@ myTree.insert(15)
 myTree.insert(1)
 
 print(traverse(myTree.root))
-print(bfs(myTree))
+dfs_postorder(myTree)
 
 
 
